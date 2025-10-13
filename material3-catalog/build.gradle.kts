@@ -39,13 +39,12 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
+
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
+
     //implementation(libs.androidx.compose.material3)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -56,22 +55,10 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
     implementation(libs.androidx.compose.material.icons.extended)
-    implementation(libs.androidx.compose.material)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.datastore.preferences)
-    implementation(libs.androidx.compose.material3.window.size.class1.android)
 
-    implementation(libs.androidx.compose.adaptive)
-    implementation(libs.androidx.compose.runtime)
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.compose.ui.text)
-    implementation(libs.androidx.savedstate.ktx)
-    implementation(libs.androidx.ui.tooling)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.graphics.shapes)
-
-    implementation("androidx.compose.material3:material3:1.5.0-alpha06")
-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha06")
+    implementation(libs.androidx.material3)
 
     implementation(project(":material3-samples"))
     implementation(project(":assist:annotation-sampled"))

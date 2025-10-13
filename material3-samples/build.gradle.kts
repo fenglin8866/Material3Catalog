@@ -40,23 +40,22 @@ android {
 
 dependencies {
 
-    implementation("androidx.activity:activity-compose:1.5.0")
-    implementation("androidx.compose.animation:animation:1.8.1")
-    implementation("androidx.compose.foundation:foundation:1.8.1")
-    implementation("androidx.compose.foundation:foundation-layout:1.8.1")
-    implementation("androidx.compose.material:material:1.8.1")
-    implementation("androidx.compose.material3.adaptive:adaptive:1.2.0-alpha10")
-    implementation("androidx.compose.material:material-icons-extended:1.7.8")
-    implementation("androidx.compose.runtime:runtime:1.8.1")
-    implementation("androidx.compose.ui:ui:1.8.2")
-    implementation("androidx.compose.ui:ui-text:1.8.1")
-    implementation("androidx.savedstate:savedstate-ktx:1.2.1")
-    implementation("androidx.compose.ui:ui-tooling:1.8.1")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.8.1")
-    implementation("androidx.graphics:graphics-shapes:1.0.1")
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.androidx.compose.ui.tooling.preview)
 
+    //implementation(libs.androidx.compose.material3)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation("androidx.compose.material3:material3:1.5.0-alpha06")
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.compose.adaptive)
+    implementation(libs.androidx.compose.material.icons.extended)
+    implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.material3)
+
     implementation(project(":assist:annotation-sampled"))
 
 }
