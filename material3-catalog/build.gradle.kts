@@ -1,23 +1,20 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
 
 android {
-    namespace = "androidx.compose.material.catalog"
+    namespace = "androidx.compose.material3.catalog.library"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "androidx.compose.material3.catalog.library"
         minSdk = 29
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -57,8 +54,26 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-    implementation("androidx.navigation:navigation-compose:2.9.5")
-    implementation(project(":material3-catalog"))
-    implementation("androidx.compose.material3:material3:1.5.0-alpha06")
+
     implementation(libs.androidx.compose.material.icons.extended)
+    implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.compose.material3.window.size.class1.android)
+
+    implementation(libs.androidx.compose.adaptive)
+    implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.compose.ui.text)
+    implementation(libs.androidx.savedstate.ktx)
+    implementation(libs.androidx.ui.tooling)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.graphics.shapes)
+
+    implementation("androidx.compose.material3:material3:1.5.0-alpha06")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha06")
+
+    implementation(project(":material3-samples"))
+    implementation(project(":assist:annotation-sampled"))
+    implementation(project("::assist:adaptive-samples"))
 }

@@ -21,4 +21,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "Material3Catalog"
 include(":app")
-include(":samples")
+include(":material3-samples")
+include(":material3-demo")
+include(":material3-catalog")
+include(":assist:annotation-sampled")
+include(":assist:adaptive-samples")

@@ -15,20 +15,7 @@
   ~ limitations under the License
   -->
 
-<manifest
-        xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <application
-        android:label="@string/compose_material_catalog"
-        android:icon="@mipmap/ic_launcher"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.Catalog"
-        android:enableOnBackInvokedCallback="true">
-        <activity android:name=".CatalogActivity" android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
-</manifest>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/ic_launcher_background"/>
+    <foreground android:drawable="@drawable/ic_launcher_foreground"/>
+</adaptive-icon>
