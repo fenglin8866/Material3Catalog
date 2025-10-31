@@ -572,49 +572,196 @@ val Components =
 
         //常用组件
         TextFields,
+
+        /**
+         * 类型：Button,TextButton,FilledButton,outlinedButton,FilledTonalButton
+         *  Button布局中支持添加icon
+         */
         Buttons,
+
+        /**
+         * 类型：IconButton,FilledIconButton,outlinedIconButton,FilledTonalIconButton
+         * IconToggleButton,FilledIconToggleButton,outlinedIconToggleButton,FilledTonalIconToggleButton
+         *
+         */
         IconButtons,
+
+        /**
+         * 尺寸：标准，大，中，小
+         * 样式:半圆，圆角，文字，icon
+         * 类型: elevated，outlined，Tonal
+         */
         ToggleButtons,
+
+        /**
+         * 尺寸：标准，大，中，小
+         * 动画：animateFloatingActionButton
+         */
         FloatingActionButtons,
+
+        /**
+         * ExtendedFloatingActionButton
+         * 根据组件的状态设置是否展开
+         */
         ExtendedFloatingActionButton,
+
+        /**
+         * button集合，有两种实现方式
+         * 1、使用ButtonGroup，需要处理溢出逻辑
+         * 2、使用FlowRow+ToggleButton，可可以实现单选和多选
+         */
         ButtonGroups,
+        /**
+         * 多选一按钮
+         * 1、与java不同，移除RadioGroup,使用Row，Column中Modifier.selectableGroup()控制选中
+         * 2、RadioButton控制按钮，文字使用Text
+         */
         RadioButtons,
+
+        /**
+         * SplitButtonLayout定义前后按钮实现
+         * trailing布局需要定义动画逻辑
+         */
         SplitButtons,
+
+        /**
+         * 多个块状按钮选择，单选和多选，默认是有icon，支持自定义icon
+         * SingleChoiceSegmentedButtonRow
+         * MultiChoiceSegmentedButtonRow
+         * SegmentedButton
+         */
         SegmentedButtons,
+
+        /**
+         * 多选多按钮
+         * 1、与java不同，移除CheckBoxGroup，使用Row，Column中modifier =
+         *                 Modifier.triStateToggleable(
+         *                     state = parentState,
+         *                     onClick = onParentClick,
+         *                     role = Role.Checkbox,
+         *                 ),
+         * 2、CheckBox控制按钮，文字使用Text
+         * 3、TriStateCheckbox三态按钮控制全选，全不选，部分选
+         */
         Checkboxes,
+
+        /**
+         * 切换按钮switch
+         * 支持设置icon thumbContent
+         */
         Switches,
+
+        /**
+         * 角标
+         * 通过BadgeBox+Badge实现
+         */
         Badge,
+
+        /**
+         * 卡片Card+Box
+         * 样式：elevated，outlined，filled
+         */
         Card,
+
+        /**
+         * 类型：AssistChip+FilterChip+InputChip+SuggestionChip
+         */
         Chips,
 
+
+
         //常用布局
+        /**
+         * 下拉菜单，DropdownMenu，ExposedDropdownMenu，DropdownMenuItem
+         * expanded控制显示隐藏
+         * 样式，位置，大小可以自定义。
+         */
         Menus,
+        /**
+         * 悬浮按钮菜单使用FloatingActionButtonMenu，FloatingActionButtonMenuItem组件
+         */
         FloatingActionButtonMenu,
+        /**
+         * 建议搭配Scaffold组件使用
+         * TopAppBar组成title，subtitle，navigationIcon（最左边），action（最右边），一般使用IconButton填充
+         * 当action存在多个时，使用AppBarRow自适应布局
+         * 标题居中：使用CenterAlignedTopAppBar或者titleHorizontalAlignment = Alignment.CenterHorizontally,
+         * 可以添加滚动时，定义TopAppBar的行为。TopAppBarDefaults
+         *  a.对定在顶部。 pinnedScrollBehavior
+         *  b.向下滚动时，消失，向上滚动时，显示。enterAlwaysScrollBehavior
+         *  c.标题展开收起。exitUntilCollapsedScrollBehavior
+         * 滚动时要求展开和还原的标题不一样，使用TwoRowsTopAppBar
+         */
         TopAppBar,
+        /**
+         * 底部导航栏，建议搭配Scaffold组件使用
+         * 组成actions（最左边），floatingActionButton（最右边），
+         * 多个操作使用FlexibleBottomAppBar，根据宽度自动收起和隐藏
+         * 可以添加滚动时，定义BottomAppBar的行为。BottomAppBarDefaults
+         */
         BottomAppBars,
+        /**
+         * 有两种形式
+         * 1、中间图标+前后两边图标
+         * 2、悬浮按钮+列表图标
+         */
         FloatingToolbars,
+
         Tabs,
         NavigationBar,
         NavigationDrawer,
         NavigationRail,
         NavigationSuiteScaffold,
 
+
+
         //公共控件
+        /**
+         * AlterDialog默认样式标题靠左，居中显示，按钮靠右。
+         * 实践
+         * 布局不可设置，其他样式使用BasicAlertDialog自定义布局。
+         * 弹窗显示隐藏使用内部变量控制。
+         */
         Dialogs,
+        /**
+         * 1、建议搭配Scaffold组件使用
+         * 2、使用SnackbarHost，snackbarHostState调用
+         * 3、必须在协程中调用
+         *
+         * 实践
+         *  1、点击屏幕外，Snackbar不会消失
+         *  2、多次点击，不会立即覆盖，排队等待。与Toast逻辑不一致
+         */
         Snackbars,
+
         Lists,
         PullToRefreshIndicators,
         ProgressIndicators,
         LoadingIndicators,
 
+
         //其他
+        SearchBars,
         Adaptive,
         BottomSheets,
         Carousel,
         DatePickers,
-        SearchBars,
-        Sliders,
         TimePickers,
+        Sliders,
         Tooltips,
-
     )
+/**
+ * 感悟
+ * 1、类型派生
+ *     例如：
+ * 2、显示与状态隔离，
+ *    例如TopAppBar，BottomAppBar中的显示与滚动逻辑分离
+ * 3、容器与item隔离，
+ * 4、UI的交互存在耗时操作时，要添加防抖提示操作 ，避免用户操作过快
+ * 5、组件与组件的隔离，通过层层嵌套实现复杂的UI
+ * 6、组件内不同的类型，通过modify等参数来实现
+ *
+ * ==================================
+ * UI的核心：颜色，外观，运动，排版，icon，高度
+ *
+ */
